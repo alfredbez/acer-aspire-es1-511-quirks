@@ -17,10 +17,10 @@ Problemen beim hochfahren. \
 Sollen die Einträge in die blacklist.conf eingetragen werden? ([J]a oder [N]ein)" jn
     case $jn in
         [JjYy]* )
-					echo "blacklist dw_dmac" >> /etc/modprobe.d/blacklist.conf
-					echo "blacklist dw_dmac_core" >> /etc/modprobe.d/blacklist.conf
-					e_success "Einträge in blacklist.conf eingetragen"
-					break;;
+                    echo "blacklist dw_dmac" >> /etc/modprobe.d/blacklist.conf
+                    echo "blacklist dw_dmac_core" >> /etc/modprobe.d/blacklist.conf
+                    e_success "Einträge in blacklist.conf eingetragen"
+                    break;;
         [Nn]* ) e_error "Einträge werden nicht in die blacklist.conf eingefügt";;
         * ) jn=0; e_arrow "Bitte antworte mit [J]a oder [N]ein";;
     esac
@@ -30,12 +30,12 @@ done
 e_header "Standby Bugfix"
 jn=0
 while [ $jn = 0 ]; do
-    read -p "Sollen der Standby Bugfix eingetragen werden? ([J]a oder [N]ein)" jn
+    read -p "Soll der Standby Bugfix eingetragen werden? ([J]a oder [N]ein)" jn
     case $jn in
         [JjYy]* )
-					cp ./files/20_custom-ehci_hcd /etc/pm/sleep.d/
-					e_success "Standby Bugfix eingetragen"
-					break;;
+                    cp ./files/20_custom-ehci_hcd /etc/pm/sleep.d/
+                    e_success "Standby Bugfix eingetragen"
+                    break;;
         [Nn]* ) e_error "Standby Bugfix wird nicht eingefügt";;
         * ) jn=0; e_arrow "Bitte antworte mit [J]a oder [N]ein";;
     esac
@@ -45,12 +45,12 @@ done
 e_header "Displayhelligkeit Bugfix"
 jn=0
 while [ $jn = 0 ]; do
-    read -p "Sollen der Displayhelligkeit Bugfix eingetragen werden? ([J]a oder [N]ein)" jn
+    read -p "Soll der Displayhelligkeit Bugfix eingetragen werden? ([J]a oder [N]ein)" jn
     case $jn in
         [JjYy]* )
-					cp ./files/20-intel.conf /usr/share/X11/xorg.conf.d/
-					e_success "Displayhelligkeit Bugfix eingetragen"
-					break;;
+                    cp ./files/20-intel.conf /usr/share/X11/xorg.conf.d/
+                    e_success "Displayhelligkeit Bugfix eingetragen"
+                    break;;
         [Nn]* ) e_error "Displayhelligkeit Bugfix wird nicht eingefügt";;
         * ) jn=0; e_arrow "Bitte antworte mit [J]a oder [N]ein";;
     esac
